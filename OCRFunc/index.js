@@ -1,10 +1,10 @@
 const cognitiveServices = require('cognitive-services');
-const config = require('./config.js');
+
 module.exports = function (context, ocrInputBlob) {
     context.log("JavaScript blob trigger function processed blob \n Name:", context.bindingData.name, "\n Blob Size:", ocrInputBlob.length, "Bytes");
     const client = new cognitiveServices.computerVision({
-        apiKey: config.apiKey,
-        endpoint: config.endpoint
+        apiKey: process.env.apiKey,
+        endpoint: process.env.endpoint
     });
     const parameters = {
         "language": "unk",

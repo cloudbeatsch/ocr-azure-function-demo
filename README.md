@@ -10,23 +10,16 @@ install the function runtime (run the command in an elevated shell):
 
  ```npm install -g azure-functions-core-tools```
 
-add a `local.settings.json` file containing the following values:
+add a `local.settings.json` file containing the following values (you get your apiKey [here](https://azure.microsoft.com/en-us/try/cognitive-services/?api=computer-vision)):
 
-```js
+```json
 {
   "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "YOUR STORAGE KEY"
+    "AzureWebJobsStorage": "YOUR STORAGE KEY",
+    "endpoint": "northeurope.api.cognitive.microsoft.com",
+    "apiKey": "YOUR_KEY"
   }
-}
-```
-
- add a `config.js` to the OCRFunc folder containing the following values (you get your apiKey [here](https://azure.microsoft.com/en-us/try/cognitive-services/?api=computer-vision)):
-
- ```js
- module.exports = {
-    endpoint: "northeurope.api.cognitive.microsoft.com",
-    apiKey: "YOUR_KEY"
 }
 ```
 
@@ -54,26 +47,16 @@ create the function app:
 
 ```az functionapp create --deployment-local-git --resource-group <yourResourceGroup> --consumption-plan-location northeurope --name <app_name> --storage-account  <storage_name>```
 
+configure the app settings (you get your apiKey [here](https://azure.microsoft.com/en-us/try/cognitive-services/?api=computer-vision)):
+```az functionapp config appsettings set --resource-group <yourResourceGroup> --name <pp_name> --settings apiKey=<your_key> endpoint=northeurope.api.cognitive.microsoft.com```
+
 create a git remote and push the repo to azure
 
 ```https://<your_azure_deployment_username>@<your-function-app-name>.scm.azurewebsites.net:443/<your-function-app-name>.git```
 
- add a `config.js` to the OCRFunc folder containing the following values (you get your apiKey [here](https://azure.microsoft.com/en-us/try/cognitive-services/?api=computer-vision)):
+```git remote add azure```
 
- ```js
- module.exports = {
-    endpoint: "northeurope.api.cognitive.microsoft.com",
-    apiKey: "YOUR_KEY"
-}
-```
-
-remove `config.js` from your `.gitignore` and commit these changes with `git add .gitignore` and `git commit -m "removed .ocnfig.js from .gitignore"` 
-
-Alternatively, we can add these configs to the Functions AppSettings
-
-Add the Azure Function git repo as a remote and push the repo to azure:
-
-```git remote add azure https://<YOUR-DEPLOYMENT-USER>@<YOUR-FUNCTIONAPP-NAME>.scm.azurewebsites.net:443/<YOUR-FUNCTIONAPP-NAME>.git```
+```https://<YOUR-DEPLOYMENT-USER>@<YOUR-FUNCTIONAPP-NAME>.scm.azurewebsites.net:443/<YOUR-FUNCTIONAPP-NAME>.git```
 
 ```git push azure```
 
