@@ -44,15 +44,15 @@ Check the result in the `textinput` (e.g. using [azure storage explorer](https:/
 
 create the resource group:
 
-```az group create --name myResourceGroup --location northeurope```
+```az group create --name <yourResourceGroup> --location northeurope```
 
 create the storage account:
 
-```az storage account create --name <storage_name> --location northeurope --resource-group myResourceGroup --sku Standard_LRS```
+```az storage account create --name <storage_name> --location northeurope --resource-group <yourResourceGroup> --sku Standard_LRS```
 
 create the function app:
 
-```az functionapp create --deployment-local-git --resource-group myResourceGroup --consumption-plan-location northeurope --name <app_name> --storage-account  <storage_name>```
+```az functionapp create --deployment-local-git --resource-group <yourResourceGroup> --consumption-plan-location northeurope --name <app_name> --storage-account  <storage_name>```
 
 create a git remote and push the repo to azure
 
@@ -81,3 +81,6 @@ upload a image containing text into the `inputimages` blob container (e.g. using
 
 Check the result in the `textinput` (e.g. using [azure storage explorer](https://azure.microsoft.com/en-us/features/storage-explorer/))
 
+delete the deployed resources:
+
+```az group delete --name <yourResourceGroup>```
