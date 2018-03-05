@@ -1,0 +1,20 @@
+{
+  "name": "ocrfunction",
+  "description": "",
+  "version": "1.0.0",
+  "author": "beat schwegler <cloudbeatsch@hotmail.com>",
+  "contributors": [],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": "7.6.0",
+    "npm": "4.2.0"
+  },
+  "dependencies": {
+    "cognitive-services": "^1.0.0",
+    "promise-retry": "^1.1.1",
+    "sleep-promise": "^2.0.0"
+  },
+  "main": "./server"
+}

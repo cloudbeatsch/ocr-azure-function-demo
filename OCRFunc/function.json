@@ -1,0 +1,19 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "ocrInputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "inputimages/{name}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "recognizedText",
+      "type": "queue",
+      "direction": "out",
+      "queueName": "textinput",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
