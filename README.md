@@ -33,11 +33,13 @@ upload a image containing text into the `inputimages` blob container (e.g. using
 
 Check the result in the `textinput` (e.g. using [azure storage explorer](https://azure.microsoft.com/en-us/features/storage-explorer/))
 
-## Run the demo on Azure
+## Run the demo on Azure using deploy.cmd
 
 to deploy the demo, you can simply run the following command (you get your apiKey [here](https://azure.microsoft.com/en-us/try/cognitive-services/?api=computer-vision)):
 
 ```deploy.cmd <resource_group> <storage_account_name> <location> <function_app_name> <azure_git_username> <api_key>```
+
+## Run the demo on Azure by deploying it step-by-step
 
 create the resource group:
 
