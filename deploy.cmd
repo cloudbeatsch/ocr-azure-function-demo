@@ -1,4 +1,4 @@
-echo "usage <resource_group> <storage_account_name> <location> <function_app_name> <azure_git_username> <api_key>"
+echo "usage deploy.cmd <resource_group> <storage_account_name> <location> <function_app_name> <azure_git_username> <api_key>"
 
 call az group create --name %1 --location %3
 call az storage account create --name %2 --location %3 --resource-group %1 --sku Standard_LRS

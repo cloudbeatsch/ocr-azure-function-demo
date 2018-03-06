@@ -35,6 +35,10 @@ Check the result in the `textinput` (e.g. using [azure storage explorer](https:/
 
 ## Run the demo on Azure
 
+to deploy the demo, you can simply run the following command (you get your apiKey [here](https://azure.microsoft.com/en-us/try/cognitive-services/?api=computer-vision)):
+
+```deploy.cmd <resource_group> <storage_account_name> <location> <function_app_name> <azure_git_username> <api_key>```
+
 create the resource group:
 
 ```az group create --name <yourResourceGroup> --location northeurope```
